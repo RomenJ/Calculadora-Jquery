@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Slab&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 35px;
+        }
+        
+        .block {
+            position: absolute;
+            width: 900px;
+            height: 200px;
+            background-color: rgb(50, 22, 116);
+        }
+        
+        .calculadora {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        
+        .rojo {
+            background-color: rgb(19, 14, 82);
+        }
+        
+        .rojo p {
+            position: absolute;
+            top: 5%;
+            left: 2%;
+            font-size: 20px;
+        }
+        
+        .ClaseCalculadora {
+            padding: 20px;
+            margin: auto;
+            background-color: cadetblue;
+        }
+        
+        input[type=button] {
+            width: 75px;
+            height: 75px;
+            margin: 2px;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            background-color: teal;
+        }
+        
+        .display {
+            width: 100%;
+            height: 75px;
+            border: none;
+            background-color: cyan;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        class Windowss {
+            constructor() {
+                console.log('Se ha iniciado un objeto Windowss');
+                this.width = "";
+                this.height = "";
+                this.posX = "";
+                this.posY = "";
+                this.cadena = "";
+
+            }
+            getWith() {
+                return this.width;
+            }
+
+            setWidth(param) {
+                this.width = param;
+
+            }
+
+
+            setHeight(param) {
+                this.height = param;
+
+            }
+            setposX(param) {
+
+                this.posX = param;
+            }
+
+            setPosY(param) {
+                this.posY = param;
+            }
+            saluda() { //método de compromación 
+                console.log(`La ventana tiene de ancho ${this.width}, alto:${this.height}, posX: ${this.posX}, posY:${this.posY} `);
+            }
+            setTitle(cadena) {
+
+                this.cadena = cadena;
+
+            }
+
+        }
+        class Calcuadora extends Windowss {
+
+            constructor() {
+                super();
+                console.log('Iniciado objeto Calculadora');
+
+            }
+
+        }
+        //1.-Se crea el objeto
+        let ventana1 = new Windowss();
+        //Se intancian valores
+        ventana1.setTitle('<p> Calculadora DEW 2022</p>');
+        ventana1.setWidth('1200');
+        ventana1.setHeight('800');
+        ventana1.setposX('10');
+        ventana1.setPosY('10');
+
+
+        //Se pasan a variables
+        let cadena = ventana1.cadena;
+        let anchoVentana1 = ventana1.width;
+        let altoVentana1 = ventana1.height;
+        let posX = ventana1.posX;
+        let posY = ventana1.posY;
+
+        console.log('La cadena es...' + cadena);
+        //2.-Se Prueba con las variables y resultado de ventana 1
+
+
+        console.log(`El ancho de ventana 1 es ${anchoVentana1} `);
+        console.log(`El ancho de ventana 1 es ${ventana1.width} `);
+        console.log(`El ancho de ventana 1 es ${ventana1.getWith()} `);
+        // 3.-Introducción de valores del objeto ventana
+        console.log(`El ancho de ventana 1 es ${ventana1.width} `);
+        console.log(`El alto de ventana 1 es ${altoVentana1} `);
+        console.log(`El alto de ventana 1 es ${ventana1.height} `);
+        console.log(`La posicion X de ventana 1 es ${ventana1.posX} `);
+        console.log(`La posicion Y de ventana 1 es ${ventana1.posY} `);
+
+
+        const divVentana1 = document.createElement('div');
+
+        divVentana1.classList.add('rojo');
+        //  $("div").addClass("rojo");
+        document.body.appendChild(divVentana1);
+        ventana1.saluda();
+
+        $(divVentana1).css({
+            //"background-color": "black",
+            "width": anchoVentana1 + "px",
+            "height": altoVentana1 + "px",
+            "position": "absolute",
+            "left": posX + "px",
+            "top": posY + "px",
+            "color": "white"
+        });
+
+
+        let calcuadora1 = new Calcuadora();
+        calcuadora1.setWidth('324');
+        calcuadora1.setHeight('500');
+        calcuadora1.setposX('10');
+        calcuadora1.setPosY('10');
+
+        let anchoCalculadora1 = calcuadora1.width;
+        let altoCalculadora1 = calcuadora1.height;
+        let posXCalculadora = calcuadora1.posX;
+        let posYCalculadora = calcuadora1.posY;
+
+        const divCalculadora1 = document.createElement('div');
+
+        divVentana1.appendChild(divCalculadora1);
+
+
+
+        //     divCalculadora1.classList.add('naranja');
+        divCalculadora1.classList.add('ClaseCalculadora');
+        //Asignación de variables al código css:
+        $(divCalculadora1).css({
+            // "background-color": "blue",
+            "width": anchoCalculadora1 + "px",
+            "height": altoCalculadora1 + "px",
+            "position": "relative",
+            "left": posXCalculadora + "px",
+            "top": posYCalculadora + "px",
+        });
+
+        //Primera fila de botones
+
+
+        let form = ' <form action=""><input type="text" class="display"></form>';
+        $('.ClaseCalculadora').append(form);
+        let iniTable = '  <table>';
+        $('.ClaseCalculadora').append(iniTable);
+        let trIni1 = '  <tr>';
+        $('.ClaseCalculadora').append(trIni1);
+
+        let button1 = '<td><input type="button" value="C" onclick="c()"</td>';
+        $('.ClaseCalculadora').append(button1);
+        let button2 = '<td><input type="button" value="/" onclick="function2()"> </td>';
+
+        function function2() {
+
+            var value = $('.display').val();
+            $('.display').val(value + '/');
+        }
+
+        $('.ClaseCalculadora').append(button2);
+        let button3 = '<td><input type="button" value="<" onclick="del()" ></td>';
+        $('.ClaseCalculadora').append(button3);
+        let button4 = ' <td><input type="button" value="x" onclick="function4()" ></td>';
+
+        function function4() {
+
+            var value = $('.display').val();
+            $('.display').val(value + '*');
+        }
+
+        $('.ClaseCalculadora').append(button4);
+        let trFin1 = '  </tr>';
+        $('.ClaseCalculadora').append(trFin1);
+
+        //Segunda fila de botones:
+        let trIni2 = '<tr>';
+        $('.ClaseCalculadora').append(trIni2);
+
+        let button5 = '<td><input type="button" value="7" onclick="insertar(7)"></td> ';
+        $('.ClaseCalculadora').append(button5);
+
+        let button6 = '<td> <input type="button" value="8" onclick="insertar(8)"> </td>';
+        $('.ClaseCalculadora').append(button6);
+
+        let button7 = '<td> <input type="button" value="9" onclick="insertar(9)"> </td>';
+        $('.ClaseCalculadora').append(button7);
+
+        let button8 = '<td> <input type="button" value="-" onclick="function8()"   > </td>';
+
+        function function8() {
+
+            var value = $('.display').val();
+            $('.display').val(value + '-');
+        }
+
+        $('.ClaseCalculadora').append(button8);
+
+
+        let trFin2 = '  </tr>';
+        $('.ClaseCalculadora').append(trFin2);
+
+        //Tercera fila de botones
+        let trIni3 = '<tr>';
+        $('.ClaseCalculadora').append(trIni3);
+
+        let button9 = '<td> <input type="button" value="4" onclick="insertar(4)"> </td>';
+        $('.ClaseCalculadora').append(button9);
+        let button10 = '<td> <input type="button" value="5" onclick="insertar(5)">  </td>';
+        $('.ClaseCalculadora').append(button10);
+        let button11 = '<td> <input type="button" value="6" onclick="insertar(6)"> </td>';
+        $('.ClaseCalculadora').append(button11);
+        let button12 = '<td> <input type="button" value="+" onclick="function12()"> </td>';
+
+        function function12() {
+            var value = $('.display').val();
+            $('.display').val(value + '+');
+
+        }
+        $('.ClaseCalculadora').append(button12);
+        let trFin3 = '  </tr>';
+        $('.ClaseCalculadora').append(trFin3);
+
+
+        //fila 4 de botones
+        let trIni4 = '<tr>';
+        $('.ClaseCalculadora').append(trIni4);
+
+        let button13 = '<td> <input type="button" value="1"  onclick="insertar(1)" > </td>';
+        $('.ClaseCalculadora').append(button13);
+        let button14 = '<td> <input type="button" value="2" onclick="insertar(2)"> </td>';
+        $('.ClaseCalculadora').append(button14);
+        let button15 = '<td> <input type="button" value="3" onclick="insertar(3)"> </td>';
+        $('.ClaseCalculadora').append(button15);
+        let button16 = '<td rowspan="2"> <input style="background-color: rgb(61, 97, 99);" type="button" value="=" onclick="igual()"> </td>';
+        $('.ClaseCalculadora').append(button16);
+
+        let trFin4 = '</tr>';
+        $('.ClaseCalculadora').append(trFin4);
+
+        //Fila 5 de botones
+
+        let trIni5 = '<tr>';
+        $('.ClaseCalculadora').append(trIni5);
+        let button17 = ' <td colspan="2"> <input style="width:158px;" type="button" value="0" onclick="insertar(0)"> </td>';
+        $('.ClaseCalculadora').append(button17);
+        let button18 = ' <td colspan="2"> <input  style="width:158px;" type="button" value="."  onclick="function18()"> </td>';
+
+        function function18() {
+            var value = $('.display').val();
+            $('.display').val(value + '.');
+
+        }
+
+        $('.ClaseCalculadora').append(button18);
+
+        let trFin5 = '  </tr>';
+        $('.ClaseCalculadora').append(trFin5);
+
+
+        let FinTable = '  </table>';
+        $('.ClaseCalculadora').append(FinTable);
+
+
+        const collection = document.getElementsByClassName("ClaseCalculadora");
+        console.log(collection);
+
+
+        $(document).ready(function() {
+            $(".rojo").append(cadena);
+            divCalculadora1.addEventListener('dragenter', e => {
+                console.log('Drag Enter');
+
+            });
+            divCalculadora1.addEventListener('dragleave', e => {
+                console.log('Drag Leave');
+
+            });
+            divCalculadora1.addEventListener('dragover', e => {
+                e.preventDefault();
+                console.log('Drag Ovser');
+
+            });
+            divCalculadora1.addEventListener('drop', e => {
+                console.log('Drop');
+                // contenedor.appendChild(Win2);
+
+            });
+
+        });
+    </script>
+
+    <script src="scriptXVI.js"></script>
+</body>
+
+</html>
